@@ -13,10 +13,7 @@ public class Enemy
 
         prefab.GetComponent<EnemyMovement>().Init(data.moveSpeed, data.size);
 
-        var enemyDeath = prefab.GetComponent<EnemyDeath>();
-        enemyDeath.lifePoints = data.lifePoints;
-
-        prefab.GetComponent<EnemyHitDetection>().enemyDeath = enemyDeath;
+        prefab.GetComponent<EnemyIntegrity>().lifePoints = data.lifePoints;
     }
 }
 
