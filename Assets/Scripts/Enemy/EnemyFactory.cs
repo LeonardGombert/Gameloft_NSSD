@@ -3,18 +3,17 @@ using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
-    [SerializeField] int enemiesToSpawn;
-    [SerializeField, Tooltip("Max spacing between enemies")] private float spawnHeightIncrement = 1f;
+    [SerializeField] private GameObject _enemyPrefab;
+    [SerializeField] private int _enemiesToSpawn;
+    [SerializeField, Tooltip("Max spacing between enemies")] private float _spawnHeightIncrement = 1f;
     
-    private float spawnAreaWidth;
-    private const float enemySize = 1f, padding = 0.05f; // prevent enemies from spawning in sides of screen
+    private float _spawnAreaWidth;
+    private const float _enemySize = 1f, _padding = 0.05f; // prevent enemies from spawning in sides of screen
     
-    private Vector2 lastPos;
-    private Vector2 currPos;
+    private Vector2 _lastPos;
+    private Vector2 _currPos;
 
-    [SerializeField] private EnemyData[] enemyData = new EnemyData[3];
-    [SerializeField] private List<Enemy> spawnedEnemies = new List<Enemy>();
+    [SerializeField] private EnemyData[] _enemyData = new EnemyData[3];
 
     private void Awake()
     {
@@ -27,12 +26,12 @@ public class EnemyFactory : MonoBehaviour
         SpawnWave();
     }
 
-    private void GetSpawnAreaWidth() => spawnAreaWidth = Camera.main.orthographicSize * Camera.main.aspect - enemySize + padding;
-    private void InitStartingPosition() => lastPos = transform.position;
+    private void GetSpawnAreaWidth() => _spawnAreaWidth = Camera.main.orthographicSize * Camera.main.aspect - _enemySize + _padding;
+    private void InitStartingPosition() => _lastPos = transform.position;
 
     private void SpawnWave()
     {
-        while (enemiesToSpawn-- != 0)
+        while (_enemiesToSpawn-- != 0)
         {
             SpawnEnemy();
         }
@@ -40,27 +39,24 @@ public class EnemyFactory : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        currPos.x = Random.Range(-spawnAreaWidth, spawnAreaWidth);
-        currPos.y = Random.Range(lastPos.y, lastPos.y + spawnHeightIncrement);
+        _currPos.x = Random.Range(-_spawnAreaWidth, _spawnAreaWidth);
+        _currPos.y = Random.Range(_lastPos.y, _lastPos.y + _spawnHeightIncrement);
 
-        GameObject spawnedEnemy = Instantiate(enemyPrefab, currPos, Quaternion.identity, transform);
+        GameObject spawnedEnemy = Instantiate(_enemyPrefab, _currPos, Quaternion.identity, transform);
         
-        Enemy enemy;
-
         switch (Random.Range(0, 3))
         {
             default : // also serves as case 0
-                enemy = new SmallEnemy(spawnedEnemy, enemyData[0]);
+                new SmallEnemy(spawnedEnemy, _enemyData[0]);
                 break;
             case 1 :
-                enemy = new MediumEnemy(spawnedEnemy, enemyData[1]);
+                new MediumEnemy(spawnedEnemy, _enemyData[1]);
                 break;
             case 2 :
-                enemy = new LargeEnemy(spawnedEnemy, enemyData[2]);
+                new LargeEnemy(spawnedEnemy, _enemyData[2]);
                 break;
         }
-        spawnedEnemies.Add(enemy);
 
-        lastPos = currPos;
+        _lastPos = _currPos;
     }
 }

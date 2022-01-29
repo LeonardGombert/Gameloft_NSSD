@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Enemy1
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  lifePoints: 12
+  lifePoints: 1
   size: 0.25
   sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}

@@ -3,13 +3,20 @@ using UnityEngine;
 [System.Serializable]
 public class Enemy
 {
-    public GameObject enemyObject;
+    private GameObject _enemy;
 
-    public Enemy(GameObject enemyPrefab, EnemyData enemyData)
+    public Enemy(GameObject prefab, EnemyData data)
     {
-        enemyObject = enemyPrefab;
-        var enemyMovement = enemyPrefab.GetComponent<EnemyMovement>();
-        enemyMovement.Init(enemyData);
+        _enemy = prefab;
+
+        prefab.GetComponent<SpriteRenderer>().sprite = data.sprite;
+
+        prefab.GetComponent<EnemyMovement>().Init(data.moveSpeed, data.size);
+
+        var enemyDeath = prefab.GetComponent<EnemyDeath>();
+        enemyDeath.lifePoints = data.lifePoints;
+
+        prefab.GetComponent<EnemyHitDetection>().enemyDeath = enemyDeath;
     }
 }
 

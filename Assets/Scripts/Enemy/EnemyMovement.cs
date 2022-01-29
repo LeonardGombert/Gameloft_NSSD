@@ -1,21 +1,17 @@
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer))]
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 12f;
-    [SerializeField] private int lifePoints;
+    [SerializeField] private float _moveSpeed = 12f;
 
-    public void Init(EnemyData data)
+    public void Init(float moveSpeed, float size)
     {
-        GetComponent<SpriteRenderer>().sprite = data.sprite;
-        moveSpeed = data.moveSpeed;
-        lifePoints = data.lifePoints;
-        transform.localScale = new Vector3(data.size, data.size, data.size);
+        _moveSpeed = moveSpeed;
+        transform.localScale = new Vector3(size, size, size);
     }
 
     private void Update()
     {
-        transform.Translate(0, (-moveSpeed) * Time.deltaTime, 0);
+        transform.Translate(0, (-_moveSpeed) * Time.deltaTime, 0);
     }
 }
