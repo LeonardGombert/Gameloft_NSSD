@@ -12,6 +12,8 @@ public class SpawnPoint : MonoBehaviour
     private Vector2 lastPos;
     private Vector2 currPos;
 
+    public EnemyData[] enemyData = new EnemyData[3];
+
     private void Awake()
     {
         GetSpawnAreaWidth();
@@ -33,12 +35,14 @@ public class SpawnPoint : MonoBehaviour
             SpawnEnemy();
         }
     }
+
     private void SpawnEnemy()
     {
         currPos.x = Random.Range(-spawnAreaWidth, spawnAreaWidth);
         currPos.y = Random.Range(lastPos.y, lastPos.y + spawnHeightIncrement);
 
-        Instantiate(enemyPrefab, currPos, Quaternion.identity);
+        var spawnedEnemy = Instantiate(enemyPrefab, currPos, Quaternion.identity, transform);
+        spawnedEnemy.GetComponent<EnemyMovement>().Init(enemyData[Random.Range(0, 3)]);
 
         lastPos = currPos;
     }

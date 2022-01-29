@@ -153,8 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2697104698164675674, guid: 7ac3d277db6c17d4d95a000d2fbf2726, type: 3}
-  spawnHeightIncrement: 1
   enemiesToSpawn: 50
+  spawnHeightIncrement: 1
+  enemyData:
+  - {fileID: 11400000, guid: f4bbd44403d8ed44aa1205407b191b19, type: 2}
+  - {fileID: 11400000, guid: 5981f31310373a844bbe6ffe9714f1d5, type: 2}
+  - {fileID: 11400000, guid: d794cf8dbdade4d45bf1c89d1235ba03, type: 2}
 --- !u!4 &29943652
 Transform:
   m_ObjectHideFlags: 0
