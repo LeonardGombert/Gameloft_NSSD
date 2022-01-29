@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour
+public class EnemyFactory : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] int enemiesToSpawn;
@@ -12,7 +13,8 @@ public class SpawnPoint : MonoBehaviour
     private Vector2 lastPos;
     private Vector2 currPos;
 
-    public EnemyData[] enemyData = new EnemyData[3];
+    [SerializeField] private EnemyData[] enemyData = new EnemyData[3];
+    [SerializeField] private List<Enemy> spawnedEnemies = new List<Enemy>();
 
     private void Awake()
     {
@@ -41,8 +43,23 @@ public class SpawnPoint : MonoBehaviour
         currPos.x = Random.Range(-spawnAreaWidth, spawnAreaWidth);
         currPos.y = Random.Range(lastPos.y, lastPos.y + spawnHeightIncrement);
 
-        var spawnedEnemy = Instantiate(enemyPrefab, currPos, Quaternion.identity, transform);
-        spawnedEnemy.GetComponent<EnemyMovement>().Init(enemyData[Random.Range(0, 3)]);
+        GameObject spawnedEnemy = Instantiate(enemyPrefab, currPos, Quaternion.identity, transform);
+        
+        Enemy enemy;
+
+        switch (Random.Range(0, 3))
+        {
+            default : // also serves as case 0
+                enemy = new SmallEnemy(spawnedEnemy, enemyData[0]);
+                break;
+            case 1 :
+                enemy = new MediumEnemy(spawnedEnemy, enemyData[1]);
+                break;
+            case 2 :
+                enemy = new LargeEnemy(spawnedEnemy, enemyData[2]);
+                break;
+        }
+        spawnedEnemies.Add(enemy);
 
         lastPos = currPos;
     }
