@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BulletIntegrity : MonoBehaviour, IDamageable
 {
-    public void Damage()
+    public void Hit()
     {
         Die();
     }
@@ -10,6 +10,6 @@ public class BulletIntegrity : MonoBehaviour, IDamageable
     public void Die()
     {
         gameObject.SetActive(false);
-        Debug.Log($"Deactivating {gameObject.name}");
+        Debug.LogWarning($"Deactivating {gameObject.name}");
     }
 }

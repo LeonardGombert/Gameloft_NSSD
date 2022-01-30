@@ -4,7 +4,7 @@ public class EnemyIntegrity : MonoBehaviour, IDamageable
 {
     [HideInInspector] public int lifePoints;
 
-    public void Damage()
+    public void Hit()
     {
         lifePoints--;
 

@@ -1,6 +1,6 @@
 public interface IDamageable
 {
-    public void Damage();
+    public void Hit();
 
     public void Die();
 }

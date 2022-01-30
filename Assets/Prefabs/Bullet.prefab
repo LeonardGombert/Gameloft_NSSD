@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3902797c9f1f44ba80765f32f71575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 12
+  _speed: 24
   _maxLifetime: 2
 --- !u!114 &-6321246839312269240
 MonoBehaviour:
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7d72e3c14644b45a799523cb4d1f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagingTag: 1
+  _DetectableTag: 1
 --- !u!58 &7404641769600374744
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,35 +1,39 @@
 using UnityEngine;
 
-[System.Serializable]
 public class Enemy
 {
-    private GameObject _enemy;
+    private GameObject _enemyGameObject;
 
-    public Enemy(GameObject prefab, EnemyData data)
+    public GameObject EnemyGameObject => _enemyGameObject;
+    public float Distance => _enemyGameObject.transform.position.y;
+    public Transform Transform => _enemyGameObject.transform;
+    public string Name => _enemyGameObject.gameObject.name;
+
+    public Enemy(GameObject enemyPrefab, Vector3 currPos, Transform transform, EnemyData data)
     {
-        _enemy = prefab;
+        _enemyGameObject = GameObject.Instantiate(enemyPrefab, currPos, Quaternion.identity, transform);
 
-        prefab.GetComponent<SpriteRenderer>().sprite = data.sprite;
+        _enemyGameObject.GetComponent<SpriteRenderer>().sprite = data.sprite;
 
-        prefab.GetComponent<EnemyMovement>().Init(data.moveSpeed, data.size);
+        _enemyGameObject.GetComponent<EnemyMovement>().Init(data.moveSpeed, data.size);
 
-        prefab.GetComponent<EnemyIntegrity>().lifePoints = data.lifePoints;
+        _enemyGameObject.GetComponent<EnemyIntegrity>().lifePoints = data.lifePoints;
     }
 }
 
 // classes and constructors setup in case
 public class SmallEnemy : Enemy
 {
-    public SmallEnemy(GameObject enemyPrefab, EnemyData enemyData) : base(enemyPrefab, enemyData) { }
+    public SmallEnemy(GameObject enemyPrefab, Vector3 currPos, Transform transform, EnemyData enemyData) : base(enemyPrefab, currPos, transform, enemyData) { }
 }
 
 public class MediumEnemy : Enemy
 {
-    public MediumEnemy(GameObject enemyPrefab, EnemyData enemyData) : base(enemyPrefab, enemyData) { }
+    public MediumEnemy(GameObject enemyPrefab, Vector3 currPos, Transform transform, EnemyData enemyData) : base(enemyPrefab, currPos, transform, enemyData) { }
 }
 
 public class LargeEnemy : Enemy
 {
-    public LargeEnemy(GameObject enemyPrefab, EnemyData enemyData) : base(enemyPrefab, enemyData) { }
+    public LargeEnemy(GameObject enemyPrefab, Vector3 currPos, Transform transform, EnemyData enemyData) : base(enemyPrefab, currPos, transform, enemyData) { }
 }
 

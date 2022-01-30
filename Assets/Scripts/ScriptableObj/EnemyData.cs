@@ -7,4 +7,5 @@ public class EnemyData : ScriptableObject
     public int lifePoints;
     public float size;
     public Sprite sprite;
+    public EnemyTypes enemyType;
 }
