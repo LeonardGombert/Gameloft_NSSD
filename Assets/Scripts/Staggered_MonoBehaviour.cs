@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public class Staggered_MonoBehaviour : MonoBehaviour
 {
-    private float _tickFrequency = 0.3f;
+    private float _tickFrequency = 0.0f;
     private float _timePassed = 0.0f;
 
     private void Update()

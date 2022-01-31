@@ -15,9 +15,6 @@ public class EnemyFactory : Staggered_MonoBehaviour
 
     [SerializeField] private EnemyData[] _enemyData = new EnemyData[3];
     [SerializeField] private List<GameObject> enemyObjects = new List<GameObject>();
-   
-    private float _tickFrequency = 0.3f;
-    private float _timePassed;
 
     private void Awake()
     {

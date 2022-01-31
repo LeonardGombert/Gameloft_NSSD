@@ -9,27 +9,6 @@ public class TargetDesignator : Staggered_MonoBehaviour
 
     [SerializeField] List<EnemyMovement> enemies;
 
-    /* private float _tickFrequency = 0.3f;
-     private float _timePassed;
-
-     private void Update()
-     {
-         Staggered_Tick();
-     }
-
-     public void Staggered_Tick()
-     {
-         if (_timePassed >= _tickFrequency || !_nearestTarget) // if turrets don't have a target, "force" Tick
-         {
-             ScanForEnemies();
-             DesignateNearestTarget();
-
-             _timePassed = 0;
-             _tickFrequency = Random.Range(0.1f, 0.5f); // ticks occur irregularly. Decreases chance of overlapping ticks of the same nature.
-         }
-         _timePassed += Time.deltaTime;
-     }*/
-
     public override void Staggered_Tick()
     {
         ScanForEnemies();
