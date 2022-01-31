@@ -32,13 +32,12 @@ public class ShootingBehaviour : MonoBehaviour
 
     private void Shoot()
     {
-        _currBullet = _bulletPool.GetFreeBullet();
+        _currBullet = _bulletPool.Pool.GetFreeObject();
 
         if (_currBullet)
         {
             _currBullet.transform.position = transform.position + _barrelTip;
             _currBullet.transform.up = transform.up;
-            _currBullet.SetActive(true);
         }
     }
 }

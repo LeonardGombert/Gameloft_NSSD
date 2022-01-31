@@ -5,7 +5,7 @@ public class TargetDesignator : Staggered_MonoBehaviour
 {
     [SerializeField] private TargetTrackingBehaviour[] _turrets;
     [SerializeField] private Transform _homeBase;
-    private Transform _nearestTarget;
+    private static Transform _nearestTarget;
 
     [SerializeField] List<EnemyMovement> enemies;
 
@@ -41,7 +41,7 @@ public class TargetDesignator : Staggered_MonoBehaviour
 
         foreach (var turret in _turrets)
         {
-            turret.target = _nearestTarget;
+            // turret.target = _nearestTarget;
         }
     }
 }

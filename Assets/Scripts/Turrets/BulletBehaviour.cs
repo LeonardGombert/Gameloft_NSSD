@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletBehaviour : MonoBehaviour
+public class BulletBehaviour : PooledObj
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _maxLifetime;
@@ -24,7 +24,7 @@ public class BulletBehaviour : MonoBehaviour
             if (_timePassed >= _maxLifetime)
             {
                 _timePassed = 0.0f;
-                gameObject.SetActive(false); // returns the bullet to the pool
+                Deactivate(); // returns the bullet to the pool
             }
         }
     }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2697104698164675668}
   - component: {fileID: 2697104698164675675}
-  - component: {fileID: 6653298676411340886}
+  - component: {fileID: 4859383708997493515}
   - component: {fileID: 6789188637642791942}
   - component: {fileID: 6529091306884640578}
   - component: {fileID: 3348204333147205637}
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6653298676411340886
+--- !u!114 &4859383708997493515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,10 +96,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2697104698164675674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16c7bce53fca3224281cff6961b291bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 56b6f60f7df2e764eaf5343304536290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 2
 --- !u!114 &6789188637642791942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7d72e3c14644b45a799523cb4d1f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _InteractiveTag: 0
+  _canBeHitBy: 0
   _overlapCooldown: 0
 --- !u!58 &3348204333147205637
 CircleCollider2D:

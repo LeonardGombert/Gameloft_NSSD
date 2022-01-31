@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81326f4736943f24086443b648b58639, type: 3}
-  m_Name: Enemy3
+  m_Name: MediumEnemy
   m_EditorClassIdentifier: 
-  moveSpeed: 0.25
-  lifePoints: 50
-  size: 1
+  moveSpeed: 0.5
+  lifePoints: 20
+  size: 0.5
   sprite: {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
+  enemyType: 1

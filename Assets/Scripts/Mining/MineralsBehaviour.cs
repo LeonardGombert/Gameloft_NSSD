@@ -3,12 +3,18 @@ using UnityEngine;
 public class MineralsBehaviour : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _numberOfHitsToBreak;
+    private int _currIntegrity;
+
+    private void Start()
+    {
+        _currIntegrity = _numberOfHitsToBreak;
+    }
 
     public void Hit()
     {
-        _numberOfHitsToBreak--;
+        _currIntegrity--;
 
-        if (_numberOfHitsToBreak <= 0)
+        if (_currIntegrity <= 0)
         {
             Destroy();
         }
@@ -16,8 +22,7 @@ public class MineralsBehaviour : MonoBehaviour, IDamageable
 
     public void Destroy()
     {
-        Debug.Log("Was destroyed. Spawning money.");
-
         gameObject.SetActive(false);
+        _currIntegrity = _numberOfHitsToBreak;
     }
 }

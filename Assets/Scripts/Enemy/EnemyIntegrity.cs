@@ -16,6 +16,6 @@ public class EnemyIntegrity : MonoBehaviour, IDamageable
 
     public void Destroy()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
