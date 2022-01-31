@@ -10,11 +10,11 @@ public class EnemyIntegrity : MonoBehaviour, IDamageable
 
         if (lifePoints == 0)
         {
-            Die();
+            Destroy();
         }
     }
 
-    public void Die()
+    public void Destroy()
     {
         Destroy(gameObject);
     }

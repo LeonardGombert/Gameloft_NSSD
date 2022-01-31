@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c7bce53fca3224281cff6961b291bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 12
+  _moveSpeed: 2
 --- !u!114 &6789188637642791942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af7d72e3c14644b45a799523cb4d1f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damagingTag: 0
+  _InteractiveTag: 0
+  _overlapCooldown: 0
 --- !u!58 &3348204333147205637
 CircleCollider2D:
   m_ObjectHideFlags: 0

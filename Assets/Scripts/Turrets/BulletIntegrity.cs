@@ -4,12 +4,11 @@ public class BulletIntegrity : MonoBehaviour, IDamageable
 {
     public void Hit()
     {
-        Die();
+        Destroy();
     }
 
-    public void Die()
+    public void Destroy()
     {
         gameObject.SetActive(false);
-        Debug.LogWarning($"Deactivating {gameObject.name}");
     }
 }
