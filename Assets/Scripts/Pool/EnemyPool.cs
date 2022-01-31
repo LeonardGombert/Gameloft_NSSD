@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +12,7 @@ public class EnemyPool : MonoBehaviour
     private Vector2 _currPos;
 
     [SerializeField] private EnemyData[] _enemyData = new EnemyData[3];
-    [SerializeField] private List<GameObject> _spawnedEnemies = new List<GameObject>();
-
-    public Queue<EnemyBehaviour> enemyWave = new Queue<EnemyBehaviour>();
+    [SerializeField] private List<GameObject> spawnedEnemies = new List<GameObject>();
 
     [SerializeField] private int _enemyPoolSize;
     [SerializeField] private GameObject _enemyPrefab;
@@ -30,59 +29,74 @@ public class EnemyPool : MonoBehaviour
     }
 
     private void Start()
-    {
-        SpawnWave();
+    { 
+        StartCoroutine(SpawnEnemies());
     }
+
+    private float _tickFrequency = 0.0f;
+    private float _timePassed = 0.0f;
+
+    public List<GameObject> Enemies => spawnedEnemies;
+
+    void Update()
+    {
+        if (_timePassed >= _tickFrequency)
+        {
+            RemoveEmpties();
+
+            _timePassed = 0;
+            _tickFrequency = Random.Range(0.01f, 0.1f);
+        } // ticks occur irregularly.
+        _timePassed += Time.deltaTime;
+    }
+
 
     private void GetSpawnAreaWidth() => _spawnAreaWidth = Camera.main.orthographicSize * Camera.main.aspect - _enemySize + _padding;
 
     public void RemoveEmpties()
     {
-        for (int i = _spawnedEnemies.Count - 1; i > 0; i--)
+        for (int i = spawnedEnemies.Count - 1; i >= 0; i--)
         {
-            if (!_spawnedEnemies[i])
+            if (spawnedEnemies[i].GetComponent<PooledObj>().IsDisabled)
             {
-                _spawnedEnemies.RemoveAt(i);
+                spawnedEnemies.RemoveAt(i);
             }
         }
     }
-
-    private void SpawnWave()
+    
+    private IEnumerator SpawnEnemies()
     {
-        for (int i = 0; i < _enemyPoolSize; i++)
-        {
-            _currPos.x = Random.Range(-_spawnAreaWidth, _spawnAreaWidth);
-            _currPos.y = transform.position.y;
+        ActivateEnemy();
 
-            GameObject newObj = _enemyPool.GetFreeObject();
-            newObj.transform.position = _currPos;
-            newObj.transform.parent = transform;
+        yield return new WaitForSeconds(2f);
 
-            EnemyBehaviour enemy = newObj.GetComponent<EnemyBehaviour>();
-
-            switch (Random.Range(0, _enemyData.Length - 1))
-            {
-                default: // also serves as case 0
-                    enemy.Config(_enemyData[0]);
-                    break;
-                case 1:
-                    enemy.Config(_enemyData[1]);
-                    break;
-                case 2:
-                    enemy.Config(_enemyData[2]);
-                    break;
-            }
-
-            _spawnedEnemies.Add(newObj);
-            enemy.Deactivate();
-        }
+        StartCoroutine(SpawnEnemies());
     }
 
-    private void Activate()
+    private void ActivateEnemy()
     {
-        int index = 0;
+        _currPos.x = Random.Range(-_spawnAreaWidth, _spawnAreaWidth);
+        _currPos.y = transform.position.y;
 
-        enemyWave.Enqueue(_spawnedEnemies[index].GetComponent<EnemyBehaviour>());
-        _spawnedEnemies.RemoveAt(index);
+        GameObject newObj = _enemyPool.GetFreeObject();
+        newObj.transform.position = _currPos;
+        newObj.transform.parent = transform;
+
+        EnemyBehaviour enemy = newObj.GetComponent<EnemyBehaviour>();
+
+        switch (Random.Range(0, _enemyData.Length - 1))
+        {
+            default: // also serves as case 0
+                enemy.Config(_enemyData[0]);
+                break;
+            case 1:
+                enemy.Config(_enemyData[1]);
+                break;
+            case 2:
+                enemy.Config(_enemyData[2]);
+                break;
+        }
+
+        spawnedEnemies.Add(newObj);
     }
 }

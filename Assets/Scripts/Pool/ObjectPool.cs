@@ -29,8 +29,9 @@ public class ObjectPool<T> where T : PooledObj
         for (int i = 0; i < _poolSize; i++)
         {
             newObj = GameObject.Instantiate(_poolObjectPrefab, _poolContainer);
-            _objectPool.Add(newObj.GetComponent<T>());
             newObj.SetActive(false);
+
+            _objectPool.Add(newObj.GetComponent<T>());
         }
     }
 

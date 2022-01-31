@@ -19,7 +19,7 @@ public class TargetTrackingBehaviour : MonoBehaviour
             DesignateNearestTarget();
 
             _timePassed = 0;
-            _tickFrequency = Random.Range(0.01f, 0.25f);
+            _tickFrequency = Random.Range(0.01f, 0.1f);
         } // ticks occur irregularly. Decreases chance of overlapping ticks of the same nature.
         _timePassed += Time.deltaTime;
 
@@ -32,7 +32,7 @@ public class TargetTrackingBehaviour : MonoBehaviour
         float closestDistanceSqr = Mathf.Infinity;
         Vector3 currentPosition = _homeBase.position;
 
-        foreach (var curr in _enemyPool.enemyWave)
+        foreach (var curr in _enemyPool.Enemies)
         {
             Vector3 direction = curr.transform.position - currentPosition;
 

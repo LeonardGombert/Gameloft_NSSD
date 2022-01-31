@@ -8,9 +8,9 @@ public class EnemyBehaviour : PooledObj
 
     public void Config(EnemyData enemyData)
     {
+        _moveSpeed = enemyData.moveSpeed;
         GetComponent<SpriteRenderer>().sprite = enemyData.sprite;
         GetComponent<EnemyIntegrity>().lifePoints = enemyData.lifePoints;
-        _moveSpeed = enemyData.moveSpeed;
         transform.localScale = new Vector3(enemyData.size, enemyData.size, enemyData.size);
     }
 

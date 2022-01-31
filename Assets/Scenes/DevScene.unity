@@ -157,8 +157,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4bbd44403d8ed44aa1205407b191b19, type: 2}
   - {fileID: 11400000, guid: 5981f31310373a844bbe6ffe9714f1d5, type: 2}
   - {fileID: 11400000, guid: d794cf8dbdade4d45bf1c89d1235ba03, type: 2}
-  _enemyObjects: []
-  _enemyPoolSize: 100
+  spawnedEnemies: []
+  _enemyPoolSize: 20
   _enemyPrefab: {fileID: 2697104698164675674, guid: 7ac3d277db6c17d4d95a000d2fbf2726, type: 3}
 --- !u!4 &29943652
 Transform:
@@ -399,7 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ccf9ae7abfc844ba21308327648408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rateOfFire: 2
+  _bulletPool: {fileID: 606393783}
+  _rateOfFire: 20
   _barrelTip: {x: 0, y: 0, z: 0}
 --- !u!212 &610140046
 SpriteRenderer:
@@ -442,7 +443,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.65722054, g: 1, b: 0.5896226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -511,7 +512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ccf9ae7abfc844ba21308327648408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rateOfFire: 2
+  _bulletPool: {fileID: 606393783}
+  _rateOfFire: 20
   _barrelTip: {x: 0, y: 0, z: 0}
 --- !u!212 &713456240
 SpriteRenderer:
@@ -554,7 +556,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.65722054, g: 1, b: 0.5896226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -623,7 +625,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ccf9ae7abfc844ba21308327648408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rateOfFire: 2
+  _bulletPool: {fileID: 606393783}
+  _rateOfFire: 20
   _barrelTip: {x: 0, y: 0, z: 0}
 --- !u!212 &1393366939
 SpriteRenderer:
@@ -666,7 +669,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.65722054, g: 1, b: 0.5896226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -756,7 +759,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1653982772}
-  - component: {fileID: 1653982773}
   m_Layer: 0
   m_Name: Minerals
   m_TagString: Untagged
@@ -777,24 +779,8 @@ Transform:
   m_Children:
   - {fileID: 599713053}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1653982773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653982771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a396857ebe70ba4085ff95188549586, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _poolSize: 0
-  _poolObjectPrefab: {fileID: 4098791815573082531, guid: 352c7a4ff7b0efa45985edb1c567f1f8, type: 3}
-  _objectPool: []
-  _active: []
 --- !u!1 &1895079133
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +833,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2115387836}
-  - component: {fileID: 2115387837}
   m_Layer: 0
   m_Name: Turrets
   m_TagString: Untagged
@@ -871,27 +856,8 @@ Transform:
   - {fileID: 2137806936}
   - {fileID: 610140047}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2115387837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115387835}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16925720172dad845969037b6f547044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _turrets:
-  - {fileID: 1393366941}
-  - {fileID: 713456242}
-  - {fileID: 2137806937}
-  - {fileID: 610140048}
-  _homeBase: {fileID: 2115387836}
-  enemies: []
 --- !u!1 &2137806933
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,7 +889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ccf9ae7abfc844ba21308327648408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rateOfFire: 2
+  _bulletPool: {fileID: 606393783}
+  _rateOfFire: 20
   _barrelTip: {x: 0, y: 0, z: 0}
 --- !u!212 &2137806935
 SpriteRenderer:
@@ -966,7 +933,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.65722054, g: 1, b: 0.5896226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
