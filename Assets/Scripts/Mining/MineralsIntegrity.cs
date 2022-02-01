@@ -22,7 +22,7 @@ public class MineralsIntegrity : MonoBehaviour, IDamageable
 
     public void Destroy()
     {
-        gameObject.SetActive(false);
         _currIntegrity = _numberOfHitsToBreak;
+        GetComponent<Pool_Object>().Deactivate();
     }
 }

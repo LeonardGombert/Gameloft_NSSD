@@ -1,17 +1,15 @@
 using UnityEngine;
 
-public class BulletPool : MonoBehaviour
+public class BulletPool : Pool
 {
-    [SerializeField] private int _bulletPoolSize;
-    [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private ShootingBehaviour[] _turrets;
 
-    private ObjectPool<BulletBehaviour> _bulletPool;
+    private GenericPool<BulletBehaviour> _bulletPool;
 
     void Awake()
     {
-        _bulletPool = new ObjectPool<BulletBehaviour>(_bulletPoolSize, _bulletPrefab, transform);
-        _bulletPool.FillPool();
+        _bulletPool = new GenericPool<BulletBehaviour>(_poolSize, _poolObjectPrefab, transform);
+        _bulletPool.FillPool(this);
 
         foreach (var turret in _turrets)
         {

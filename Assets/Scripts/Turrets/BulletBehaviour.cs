@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BulletBehaviour : PooledObj
+public class BulletBehaviour : Pool_Object
 {
     [SerializeField] private float _speed;
     [SerializeField] private float _maxLifetime;

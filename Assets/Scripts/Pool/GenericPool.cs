@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPool<T> where T : PooledObj
+public class GenericPool<T> where T : Pool_Object
 {
     private int _poolSize;
     private GameObject _poolObjectPrefab;
@@ -12,7 +12,7 @@ public class ObjectPool<T> where T : PooledObj
     
     public int PoolSize => _poolSize;
 
-    public ObjectPool(int poolSize, GameObject poolObjectPrefab, Transform parent)
+    public GenericPool(int poolSize, GameObject poolObjectPrefab, Transform parent)
     {
         // configure pool params
         _poolSize = poolSize;
@@ -22,7 +22,7 @@ public class ObjectPool<T> where T : PooledObj
         _objectPool = new List<T>(_poolSize);
     }
 
-    public void FillPool()
+    public void FillPool(Pool owningPool)
     {
         // instantiate all necessary elements
         GameObject newObj;
@@ -31,17 +31,19 @@ public class ObjectPool<T> where T : PooledObj
             newObj = GameObject.Instantiate(_poolObjectPrefab, _poolContainer);
             newObj.SetActive(false);
 
-            _objectPool.Add(newObj.GetComponent<T>());
+            var spawnedObj = newObj.GetComponent<T>();
+            spawnedObj.SetOwningPool(owningPool);
+            _objectPool.Add(spawnedObj);
         }
     }
 
-    public GameObject GetFreeObject()
+    public T GetFreeObject()
     {
         foreach (T element in _objectPool)
         {
             if (element.IsDisabled)
             {
-                return element.Activate();
+                return element.Activate() as T;
             }
         }
         return null;

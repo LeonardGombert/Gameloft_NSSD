@@ -4,6 +4,11 @@ public class EnemyIntegrity : MonoBehaviour, IDamageable
 {
     [HideInInspector] public int lifePoints;
 
+    private void Start()
+    {
+        
+    }
+
     public void Hit()
     {
         lifePoints--;
@@ -16,6 +21,6 @@ public class EnemyIntegrity : MonoBehaviour, IDamageable
 
     public void Destroy()
     {
-        gameObject.SetActive(false);
+        GetComponent<Pool_Object>().Deactivate();
     }
 }

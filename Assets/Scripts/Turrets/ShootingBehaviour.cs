@@ -6,9 +6,9 @@ public class ShootingBehaviour : MonoBehaviour
     private float _timePassed;
     private GameObject _currBullet;
 
-    private ObjectPool<BulletBehaviour> _bulletPool;
+    private GenericPool<BulletBehaviour> _bulletPool;
 
-    public void Config(ObjectPool<BulletBehaviour> bulletPool)
+    public void Config(GenericPool<BulletBehaviour> bulletPool)
     {
         _bulletPool = bulletPool;
     }
@@ -35,7 +35,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     private void FireTurrets()
     {
-        _currBullet = _bulletPool.GetFreeObject();
+        _currBullet = _bulletPool.GetFreeObject().gameObject;
 
         _currBullet.transform.position = transform.position;
         _currBullet.transform.up = transform.up;
