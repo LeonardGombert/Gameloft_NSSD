@@ -11,10 +11,13 @@ public class MineralPool : Pool
         _mineralPool.FillPool(this);
     }
 
-    public void SpawnAtLocation(Vector3 location)
+    public void SpawnAtLocation(Vector3 location, MineralTypes droppedMinerals)
     {
         MineralsBehaviour mineralBlock = _mineralPool.GetFreeObject();
-        mineralBlock.SetValue(Random.Range(1, 15));
+        mineralBlock.SetVisuals(droppedMinerals.visual, droppedMinerals.size);
+        mineralBlock.SetValue(droppedMinerals._value);
         mineralBlock.transform.position = location;
+
+        mineralBlock.GetComponent<EntityHitDetection>().onStayCooldown = droppedMinerals.timeToMine;
     }
 }

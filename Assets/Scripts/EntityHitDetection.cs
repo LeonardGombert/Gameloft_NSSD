@@ -12,7 +12,7 @@ public class EntityHitDetection : MonoBehaviour
     [SerializeField] private ComplexInteractionTypes _hitTypes;
     private string _DetectableTagString;
 
-    [SerializeField] private float _onStayCooldown;
+    public float onStayCooldown;
     private float _elapsedTime;
 
     private IDamageable _entityIntegrity;
@@ -36,7 +36,7 @@ public class EntityHitDetection : MonoBehaviour
         if (other.gameObject.CompareTag(_DetectableTagString) && _hitTypes.HasFlag(ComplexInteractionTypes.CollisionStay))
         {
             GetComponent<Rigidbody2D>().sleepMode = RigidbodySleepMode2D.NeverSleep;
-            if (_elapsedTime >= _onStayCooldown)
+            if (_elapsedTime >= onStayCooldown)
             {
                 _entityIntegrity.Hit();
                 _elapsedTime = 0;
@@ -58,7 +58,7 @@ public class EntityHitDetection : MonoBehaviour
         if (other.gameObject.CompareTag(_DetectableTagString) && _hitTypes.HasFlag(ComplexInteractionTypes.TriggerStay))
         {
             GetComponent<Rigidbody2D>().sleepMode = RigidbodySleepMode2D.NeverSleep;
-            if (_elapsedTime >= _onStayCooldown)
+            if (_elapsedTime >= onStayCooldown)
             {
                 _entityIntegrity.Hit();
                 _elapsedTime = 0;

@@ -8,4 +8,5 @@ public class EnemyData : ScriptableObject
     public float size;
     public Sprite sprite;
     public EnemyTypes enemyType;
+    public MineralTypes droppedMinerals;
 }

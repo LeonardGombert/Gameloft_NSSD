@@ -29,10 +29,7 @@ public class EnemyBehaviour : Pool_Object
     {
         var random = UnityEngine.Random.Range(0, 1);
 
-        if (random >= _enemyData.size)
-        {
-            _mineralPool.SpawnAtLocation(Positon);
-        }
+        _mineralPool.SpawnAtLocation(Positon, _enemyData.droppedMinerals);
 
         base.Deactivate();
     }

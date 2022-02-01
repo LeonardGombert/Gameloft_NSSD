@@ -1,8 +1,14 @@
+using System;
 using UnityEngine;
 
 public class MineralsBehaviour : Pool_Object
 {
     [SerializeField] private int _value;
+
+    private void Update()
+    {
+        // timer to destroy
+    }
 
     public override void Deactivate()
     {
@@ -14,5 +20,11 @@ public class MineralsBehaviour : Pool_Object
     public void SetValue(int value)
     {
         _value = value;
+    }
+
+    public void SetVisuals(Sprite visual, float size)
+    {
+        transform.localScale = new Vector3(size, size, size);
+        GetComponent<SpriteRenderer>().sprite = visual;
     }
 }
