@@ -203,7 +203,7 @@ Transform:
   m_Children:
   - {fileID: 2141535644}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &497087559
 GameObject:
@@ -371,7 +371,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &610140044
 GameObject:
@@ -778,7 +778,7 @@ Transform:
   m_Children:
   - {fileID: 599713053}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1895079133
 GameObject:
@@ -833,7 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2115387836}
   m_Layer: 0
-  m_Name: Base
+  m_Name: Turrets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,7 +855,7 @@ Transform:
   - {fileID: 2137806936}
   - {fileID: 610140047}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2137806933
 GameObject:
@@ -1028,10 +1028,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4098791815573082535, guid: 352c7a4ff7b0efa45985edb1c567f1f8, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 352c7a4ff7b0efa45985edb1c567f1f8, type: 3}
 --- !u!1001 &7126931987713355073
@@ -1041,6 +1037,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 66202300}
     m_Modifications:
+    - target: {fileID: 2172287652865224088, guid: 6bfb8d34406b4444491e143436485332, type: 3}
+      propertyPath: _hitTypes
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2172287652865224088, guid: 6bfb8d34406b4444491e143436485332, type: 3}
+      propertyPath: _onStayCooldown
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7126931985760571608, guid: 6bfb8d34406b4444491e143436485332, type: 3}
       propertyPath: m_Name
       value: Miner
@@ -1051,11 +1055,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7126931985760571613, guid: 6bfb8d34406b4444491e143436485332, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.51
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 7126931985760571613, guid: 6bfb8d34406b4444491e143436485332, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.27
+      value: 3.29
       objectReference: {fileID: 0}
     - target: {fileID: 7126931985760571613, guid: 6bfb8d34406b4444491e143436485332, type: 3}
       propertyPath: m_LocalPosition.z

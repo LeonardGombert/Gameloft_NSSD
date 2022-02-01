@@ -126,7 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canBeHitBy: 1
-  _overlapCooldown: 0
+  _hitTypes: 13
+  _onStayCooldown: 2
 --- !u!58 &7126931985760571612
 CircleCollider2D:
   m_ObjectHideFlags: 0

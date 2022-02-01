@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
-public class MoveToBehaviour : MonoBehaviour
+public class MinerMovementBehaviour : MonoBehaviour
 {
     private InputManager _inputManager;
     [SerializeField] private float _moveSpeed = 60.0f;

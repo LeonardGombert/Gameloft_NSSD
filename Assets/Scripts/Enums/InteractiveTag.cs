@@ -1,4 +1,4 @@
-public enum InteractiveTags
+public enum InteractiveTag
 {
     Bullet,
     Enemy,
