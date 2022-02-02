@@ -16,7 +16,7 @@ public class MineralsIntegrity : MonoBehaviour, IDamageable
         _intergrityText.SetText("100%");
     }
 
-    public void Hit()
+    public void Hit(GameObject otherObject = null)
     {
         _currIntegrity--;
 

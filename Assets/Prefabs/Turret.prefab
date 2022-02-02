@@ -529,3 +529,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTracking: {fileID: 3230333549170637560}
   _shootingBehaviour: {fileID: 3230333549170637567}
+  _upgradeText: {fileID: 3230333548211562732}

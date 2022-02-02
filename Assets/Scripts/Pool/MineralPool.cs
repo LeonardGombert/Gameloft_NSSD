@@ -3,7 +3,7 @@ using UnityEngine;
 public class MineralPool : Pool
 {
     private GenericPool<MineralsBehaviour> _mineralPool;
-    public BaseBehaviour playerBase;
+    public PlayerBaseBehaviour playerBase;
 
     void Awake()
     {
@@ -15,7 +15,7 @@ public class MineralPool : Pool
     {
         MineralsBehaviour mineralBlock = _mineralPool.GetFreeObject();
         mineralBlock.SetScale(droppedMinerals.size);
-        mineralBlock.SetValue(droppedMinerals._value);
+        mineralBlock.SetValue(droppedMinerals.value);
         mineralBlock.transform.position = location;
 
         mineralBlock.GetComponent<EntityHitDetection>().onStayCooldown = droppedMinerals.timeToMine;

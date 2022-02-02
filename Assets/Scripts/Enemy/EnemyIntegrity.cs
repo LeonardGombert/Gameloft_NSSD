@@ -7,7 +7,7 @@ public class EnemyIntegrity : MonoBehaviour, IDamageable
     [HideInInspector] private int _lifePoints;
     [SerializeField] public TMP_Text _lifePointsText;
 
-    public void Hit()
+    public void Hit(GameObject otherObject = null)
     {
         _lifePoints--;
 

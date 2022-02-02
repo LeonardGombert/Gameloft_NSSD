@@ -8,7 +8,7 @@ public class MinerIntegrity : MonoBehaviour, IDamageable
     [SerializeField] private int _criticalHealthPoints;
     [SerializeField] TMP_Text _lifePointsText;
 
-    public void Hit()
+    public void Hit(GameObject otherObject = null)
     {
         _healthPoints--;
 
@@ -27,6 +27,7 @@ public class MinerIntegrity : MonoBehaviour, IDamageable
 
     public void Destroy()
     {
-        Debug.Log("Miner was killed.");
+        _lifePointsText.SetText("DEAD");
+        GetComponent<MinerMovementBehaviour>().enabled = false;
     }
 }

@@ -1,6 +1,8 @@
+using UnityEngine;
+
 public interface IDamageable
 {
-    public void Hit();
+    public void Hit(GameObject otherObject = default);
 
     public void Destroy();
 }

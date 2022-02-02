@@ -27,7 +27,7 @@ public class EntityHitDetection : MonoBehaviour
     {
         if (other.gameObject.CompareTag(_DetectableTagString) && _hitTypes.HasFlag(ComplexInteractionTypes.CollisionEnter))
         {
-            _entityIntegrity.Hit();
+            _entityIntegrity.Hit(other.gameObject);
         }
     }
 
@@ -38,7 +38,7 @@ public class EntityHitDetection : MonoBehaviour
             GetComponent<Rigidbody2D>().sleepMode = RigidbodySleepMode2D.NeverSleep;
             if (_elapsedTime >= onStayCooldown)
             {
-                _entityIntegrity.Hit();
+                _entityIntegrity.Hit(other.gameObject);
                 _elapsedTime = 0;
             }
             _elapsedTime += Time.fixedDeltaTime;
@@ -49,7 +49,7 @@ public class EntityHitDetection : MonoBehaviour
     {
         if (other.gameObject.CompareTag(_DetectableTagString) && _hitTypes.HasFlag(ComplexInteractionTypes.TriggerEnter))
         {
-            _entityIntegrity.Hit();
+            _entityIntegrity.Hit(other.gameObject);
         }
     }
 
@@ -60,7 +60,7 @@ public class EntityHitDetection : MonoBehaviour
             GetComponent<Rigidbody2D>().sleepMode = RigidbodySleepMode2D.NeverSleep;
             if (_elapsedTime >= onStayCooldown)
             {
-                _entityIntegrity.Hit();
+                _entityIntegrity.Hit(other.gameObject);
                 _elapsedTime = 0;
             }
             _elapsedTime += Time.fixedDeltaTime;

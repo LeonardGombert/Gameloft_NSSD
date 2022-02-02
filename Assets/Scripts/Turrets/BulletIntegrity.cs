@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BulletIntegrity : MonoBehaviour, IDamageable
 {
-    public void Hit()
+    public void Hit(GameObject otherObject = null)
     {
         Destroy();
     }
@@ -11,4 +11,5 @@ public class BulletIntegrity : MonoBehaviour, IDamageable
     {
         gameObject.SetActive(false);
     }
+
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd53b59d026d2024c9007c0c62dfdd51, type: 3}
   m_Name: Mineral_01
   m_EditorClassIdentifier: 
-  _value: 2
+  value: 10
   size: 0.25
-  visual: {fileID: -5177388603050735206, guid: 71ebafeef3c03457483266a33ab2b270, type: 3}
+  timeToMine: 0
