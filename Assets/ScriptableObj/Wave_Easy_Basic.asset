@@ -20,3 +20,5 @@ MonoBehaviour:
   maxNumberToSpawn: 2
   minWaveSize: 5
   maxWaveSize: 10
+  minNumberOfWaves: 4
+  maxNumberOfWaves: 10

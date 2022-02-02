@@ -39,5 +39,4 @@ public class PlayerBaseBehaviour : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 }

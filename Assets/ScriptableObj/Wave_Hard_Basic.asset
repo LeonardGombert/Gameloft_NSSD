@@ -12,4 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f9073eac79702341adbadba1ff87f46, type: 3}
   m_Name: Wave_Hard_Basic
   m_EditorClassIdentifier: 
-  wavePreset: []
+  wavePreset:
+  - {fileID: 11400000, guid: f4bbd44403d8ed44aa1205407b191b19, type: 2}
+  - {fileID: 11400000, guid: b08e87f681a822c498dd8031fa42258f, type: 2}
+  - {fileID: 11400000, guid: 5981f31310373a844bbe6ffe9714f1d5, type: 2}
+  - {fileID: 11400000, guid: c94a90249dbb4b7428b487d96283fcdd, type: 2}
+  - {fileID: 11400000, guid: d794cf8dbdade4d45bf1c89d1235ba03, type: 2}
+  minimumTimeToSpawn: 1
+  maxTimeToSpawn: 5
+  minNumberToSpawn: 5
+  maxNumberToSpawn: 10
+  minWaveSize: 50
+  maxWaveSize: 100
+  minNumberOfWaves: 100
+  maxNumberOfWaves: 9999

@@ -19,8 +19,8 @@ MonoBehaviour:
   minimumTimeToSpawn: 0
   maxTimeToSpawn: 2
   minNumberToSpawn: 1
-  maxNumberToSpawn: 4
+  maxNumberToSpawn: 5
   minWaveSize: 1
-  maxWaveSize: 6
+  maxWaveSize: 15
   minNumberOfWaves: 2
   maxNumberOfWaves: 10
