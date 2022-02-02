@@ -1,19 +1,19 @@
+using System;
+using TMPro;
 using UnityEngine;
 
 public class EnemyIntegrity : MonoBehaviour, IDamageable
 {
-    [HideInInspector] public int lifePoints;
-
-    private void Start()
-    {
-        
-    }
+    [HideInInspector] private int _lifePoints;
+    [SerializeField] public TMP_Text _lifePointsText;
 
     public void Hit()
     {
-        lifePoints--;
+        _lifePoints--;
 
-        if (lifePoints == 0)
+        _lifePointsText.SetText($"{_lifePoints}");
+
+        if (_lifePoints == 0)
         {
             Destroy();
         }
@@ -22,5 +22,11 @@ public class EnemyIntegrity : MonoBehaviour, IDamageable
     public void Destroy()
     {
         GetComponent<Pool_Object>().Deactivate();
+    }
+
+    public void ResetLifePoints(int lifePoints)
+    {
+        _lifePoints = lifePoints;
+        _lifePointsText.SetText($"{lifePoints}");
     }
 }

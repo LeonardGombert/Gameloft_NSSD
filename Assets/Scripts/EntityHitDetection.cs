@@ -10,9 +10,9 @@ public class EntityHitDetection : MonoBehaviour
 {
     [SerializeField] private InteractiveTag _canBeHitBy;
     [SerializeField] private ComplexInteractionTypes _hitTypes;
+    [SerializeField] public float onStayCooldown;
     private string _DetectableTagString;
 
-    public float onStayCooldown;
     private float _elapsedTime;
 
     private IDamageable _entityIntegrity;

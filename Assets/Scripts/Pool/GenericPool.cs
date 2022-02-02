@@ -12,6 +12,8 @@ public class GenericPool<T> where T : Pool_Object
     
     public int PoolSize => _poolSize;
 
+    public Pool _owningPool;
+
     public GenericPool(int poolSize, GameObject poolObjectPrefab, Transform parent)
     {
         // configure pool params
@@ -24,6 +26,8 @@ public class GenericPool<T> where T : Pool_Object
 
     public void FillPool(Pool owningPool)
     {
+        _owningPool = owningPool;
+
         // instantiate all necessary elements
         GameObject newObj;
         for (int i = 0; i < _poolSize; i++)
@@ -32,7 +36,7 @@ public class GenericPool<T> where T : Pool_Object
             newObj.SetActive(false);
 
             var spawnedObj = newObj.GetComponent<T>();
-            spawnedObj.SetOwningPool(owningPool);
+            spawnedObj.SetOwningPool(_owningPool);
             _objectPool.Add(spawnedObj);
         }
     }
@@ -46,7 +50,19 @@ public class GenericPool<T> where T : Pool_Object
                 return element.Activate() as T;
             }
         }
-        return null;
+
+        return ExpandPool();
+    }
+
+    private T ExpandPool()
+    {
+        GameObject newObj = GameObject.Instantiate(_poolObjectPrefab, _poolContainer);
+        var spawnedObj = newObj.GetComponent<T>();
+        spawnedObj.SetOwningPool(_owningPool);
+        spawnedObj.Activate();
+        _objectPool.Add(spawnedObj);
+
+        return spawnedObj;
     }
 }
 

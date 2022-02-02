@@ -14,7 +14,7 @@ public class MineralPool : Pool
     public void SpawnAtLocation(Vector3 location, MineralTypes droppedMinerals)
     {
         MineralsBehaviour mineralBlock = _mineralPool.GetFreeObject();
-        mineralBlock.SetVisuals(droppedMinerals.visual, droppedMinerals.size);
+        mineralBlock.SetScale(droppedMinerals.size);
         mineralBlock.SetValue(droppedMinerals._value);
         mineralBlock.transform.position = location;
 

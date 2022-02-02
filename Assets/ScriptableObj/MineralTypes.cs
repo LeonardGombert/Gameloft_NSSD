@@ -6,5 +6,4 @@ public class MineralTypes : ScriptableObject
     public int _value;
     public float size;
     public float timeToMine;
-    public Sprite visual;
 }

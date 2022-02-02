@@ -3,6 +3,7 @@ using UnityEngine;
 public class ShootingBehaviour : MonoBehaviour
 {
     [SerializeField, Tooltip("The number of bulets to fire per second.")] private float _rateOfFire;
+    [SerializeField] private Transform _turretVisuals;
     private float _timePassed;
     private GameObject _currBullet;
 
@@ -37,7 +38,7 @@ public class ShootingBehaviour : MonoBehaviour
     {
         _currBullet = _bulletPool.GetFreeObject().gameObject;
 
-        _currBullet.transform.position = transform.position;
-        _currBullet.transform.up = transform.up;
+        _currBullet.transform.position = _turretVisuals.position;
+        _currBullet.transform.up = _turretVisuals.up;
     }
 }

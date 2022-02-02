@@ -4,10 +4,18 @@ using UnityEngine;
 public class MineralsBehaviour : Pool_Object
 {
     [SerializeField] private int _value;
+    [SerializeField] private MineralsIntegrity _integrity;
+    [SerializeField] private Transform _visuals;
 
     private void Update()
     {
-        // timer to destroy
+        // TODO : timer to destroy
+    }
+
+    public override Pool_Object Activate()
+    {
+        _integrity.ResetIntegrity();
+        return base.Activate();
     }
 
     public override void Deactivate()
@@ -22,9 +30,8 @@ public class MineralsBehaviour : Pool_Object
         _value = value;
     }
 
-    public void SetVisuals(Sprite visual, float size)
+    public void SetScale(float size)
     {
-        transform.localScale = new Vector3(size, size, size);
-        GetComponent<SpriteRenderer>().sprite = visual;
+        _visuals.localScale = new Vector3(size, size, size);
     }
 }

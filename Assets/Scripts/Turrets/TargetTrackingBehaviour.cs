@@ -7,6 +7,7 @@ public class TargetTrackingBehaviour : MonoBehaviour
     [SerializeField] private EnemyPool _enemyPool;
 
     [SerializeField] private Transform _homeBase;
+    [SerializeField] private Transform _turretVisuals;
     private Transform _nearestTarget;
 
     private float _tickFrequency = 0.0f;
@@ -51,7 +52,7 @@ public class TargetTrackingBehaviour : MonoBehaviour
     {
         if (commonTarget)
         {
-            transform.up = commonTarget.position - transform.position;
+            _turretVisuals.up = commonTarget.position - transform.position;
         }
     }
 }

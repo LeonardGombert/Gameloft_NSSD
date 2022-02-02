@@ -16,7 +16,7 @@ public class EnemyBehaviour : Pool_Object
 
         _moveSpeed = _enemyData.moveSpeed;
         GetComponent<SpriteRenderer>().sprite = enemyData.sprite;
-        GetComponent<EnemyIntegrity>().lifePoints = enemyData.lifePoints;
+        GetComponent<EnemyIntegrity>().ResetLifePoints(enemyData.lifePoints);
         transform.localScale = new Vector3(enemyData.size, enemyData.size, enemyData.size);
     }
 
