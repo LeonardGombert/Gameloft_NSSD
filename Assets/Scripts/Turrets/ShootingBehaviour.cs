@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ShootingBehaviour : MonoBehaviour
@@ -17,6 +18,11 @@ public class ShootingBehaviour : MonoBehaviour
     private void Start()
     {
         _rateOfFire = 1 / _rateOfFire; // converts from "number of bullets per second" (more intuitive) to "time between each shot" (less intuitive)
+    }
+
+    public void UpgradeFiringRate()
+    {
+        _rateOfFire *= .5f;
     }
 
     private void Update()

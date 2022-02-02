@@ -202,7 +202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3230333547337334808}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3281060051223146015}
+        m_TargetAssemblyTypeName: UpgradeBehaviour, Assembly-CSharp
+        m_MethodName: PurchaseUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3230333548014695229
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +462,7 @@ GameObject:
   - component: {fileID: 3230333549170637561}
   - component: {fileID: 3230333549170637560}
   - component: {fileID: 3230333549170637567}
+  - component: {fileID: 3281060051223146015}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -502,3 +515,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rateOfFire: 5
   _turretVisuals: {fileID: 7556115697560876856}
+--- !u!114 &3281060051223146015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230333549170637564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4dc2443c0d36541994e5c063e3ea63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTracking: {fileID: 3230333549170637560}
+  _shootingBehaviour: {fileID: 3230333549170637567}
