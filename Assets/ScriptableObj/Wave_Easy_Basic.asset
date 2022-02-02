@@ -10,5 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f9073eac79702341adbadba1ff87f46, type: 3}
-  m_Name: Wave_Medium
+  m_Name: Wave_Easy_Basic
   m_EditorClassIdentifier: 
+  wavePreset:
+  - {fileID: 11400000, guid: f4bbd44403d8ed44aa1205407b191b19, type: 2}
+  minimumTimeToSpawn: 0
+  maxTimeToSpawn: 1
+  minNumberToSpawn: 1
+  maxNumberToSpawn: 2
+  minWaveSize: 5
+  maxWaveSize: 10

@@ -6,7 +6,7 @@ public class EnemyData : ScriptableObject
     public float moveSpeed;
     public int lifePoints;
     public float size;
-    public Sprite sprite;
+    public Color color;
     public EnemyTypes enemyType;
     public MineralTypes droppedMinerals;
 }

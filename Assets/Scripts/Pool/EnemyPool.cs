@@ -6,8 +6,8 @@ public class EnemyPool : Pool
 {
     [SerializeField] private MineralPool _mineralPool;
 
-    [SerializeField] private EnemyData[] _enemyData = new EnemyData[3];
     [SerializeField] private List<GameObject> spawnedEnemies = new List<GameObject>();
+    private List<EnemyData> _enemyData = new List<EnemyData>();
 
     private GenericPool<EnemyBehaviour> _enemyPool;
 
@@ -19,18 +19,12 @@ public class EnemyPool : Pool
 
     public List<GameObject> Enemies => spawnedEnemies;
 
-    // Start is called before the first frame update
     void Awake()
     {
         _enemyPool = new GenericPool<EnemyBehaviour>(_poolSize, _poolObjectPrefab, transform);
         _enemyPool.FillPool(this);
 
         GetSpawnAreaWidth();
-    }
-
-    private void Start()
-    {
-        StartCoroutine(SpawnEnemies());
     }
 
     void Update()
@@ -47,36 +41,17 @@ public class EnemyPool : Pool
 
     private void GetSpawnAreaWidth() => _spawnAreaWidth = Camera.main.orthographicSize * Camera.main.aspect - _enemySize + _padding;
 
-    private IEnumerator SpawnEnemies()
-    {
-        ActivateEnemy();
 
-        yield return new WaitForSeconds(2f);
-
-        StartCoroutine(SpawnEnemies());
-    }
-
-    private void ActivateEnemy()
+    public void ActivateEnemy()
     {
         _currPos.x = Random.Range(-_spawnAreaWidth, _spawnAreaWidth);
-        _currPos.y = transform.position.y;
+        _currPos.y = Random.Range(transform.position.y, transform.position.y + 1);
 
         EnemyBehaviour enemy = _enemyPool.GetFreeObject();
         enemy.gameObject.transform.position = _currPos;
         enemy.gameObject.transform.parent = transform;
 
-        switch (Random.Range(0, _enemyData.Length))
-        {
-            default: // also serves as case 0
-                enemy.Config(_enemyData[0], _mineralPool);
-                break;
-            case 1:
-                enemy.Config(_enemyData[1], _mineralPool);
-                break;
-            case 2:
-                enemy.Config(_enemyData[2], _mineralPool);
-                break;
-        }
+        enemy.Config(_enemyData[Random.Range(0, _enemyData.Count)], _mineralPool);
 
         spawnedEnemies.Add(enemy.gameObject);
     }
@@ -90,5 +65,10 @@ public class EnemyPool : Pool
                 spawnedEnemies.RemoveAt(i);
             }
         }
+    }
+
+    public void LoadNewEnemyData(List<EnemyData> wavePreset)
+    {
+        _enemyData = wavePreset;
     }
 }

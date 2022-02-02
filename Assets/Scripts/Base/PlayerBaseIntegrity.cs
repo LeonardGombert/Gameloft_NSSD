@@ -36,8 +36,6 @@ public class PlayerBaseIntegrity : MonoBehaviour, IDamageable
 
     private void SetSliderValue()
     {
-        float temp = _currentLifePoints / _maxLifePoints;
-        Debug.Log(temp  );
-        _lifePointsSlider.value = temp;
+        _lifePointsSlider.value = _currentLifePoints;
     }
 }

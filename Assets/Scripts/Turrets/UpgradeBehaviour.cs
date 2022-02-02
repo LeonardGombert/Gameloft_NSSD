@@ -25,7 +25,7 @@ public class UpgradeBehaviour : MonoBehaviour
 
     public void PurchaseUpgrade()
     {
-        if(_playerBase.totalPlayerFunds >= _upgradeCost)
+        if(_playerBase.Score >= _upgradeCost)
         {
             if (IsActive)
             {
@@ -36,7 +36,7 @@ public class UpgradeBehaviour : MonoBehaviour
                 ActivateTurret();
             }
 
-            _playerBase.totalPlayerFunds -= _upgradeCost;
+            _playerBase.DecrementScore(_upgradeCost);
         }
     }
 

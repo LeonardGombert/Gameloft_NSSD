@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab086478f9d0f0418f67292ad0decaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rateOfFire: 5
+  _rateOfFire: 1
   _turretVisuals: {fileID: 7556115697560876856}
 --- !u!114 &3281060051223146015
 MonoBehaviour:
