@@ -22,4 +22,3 @@ public class Pool_Object : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
-
